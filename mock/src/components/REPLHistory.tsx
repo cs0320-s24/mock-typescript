@@ -1,17 +1,21 @@
 import "../styles/main.css";
+import { outputMode } from "./commandMode";
 
 interface REPLHistoryProps {
-  // TODO: Fill with some shared state tracking all the pushed commands
-  history: string[];
+  history: { command: string; result: string }[];
 }
 export function REPLHistory(props: REPLHistoryProps) {
   return (
     <div className="repl-history">
-      {/* This is where command history will go */}
-      {/* TODO: To go through all the pushed commands... try the .map() function! */}
-      {props.history.map((elem, idx) => (
-        <p key={idx}>{elem}</p>
-      ))}
+      {props.history.map((elem, idx) => {
+        let displayText;
+        if (outputMode === "verbose") {
+          displayText = `Command: ${elem.command} \n Output: ${elem.result}`;
+        } else {
+          displayText = elem.result;
+        }
+        return <p key={idx}>{displayText}</p>;
+      })}
     </div>
   );
 }
