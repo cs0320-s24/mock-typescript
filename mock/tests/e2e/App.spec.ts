@@ -1,33 +1,15 @@
 import { expect, test } from "@playwright/test";
 
-/**
-  The general shapes of tests in Playwright Test are:
-    1. Navigate to a URL
-    2. Interact with the page
-    3. Assert something about the page against your expectations
-  Look for this pattern in the tests below!
- */
-
-// If you needed to do something before every test case...
 test.beforeEach(() => {
-  // ... you'd put it here.
   // TODO: Is there something we need to do before every test case to avoid repeating code?
 });
 
-/**
- * Don't worry about the "async" yet. We'll cover it in more detail
- * for the next sprint. For now, just think about "await" as something
- * you put before parts of your test that might take time to run,
- * like any interaction with the page.
- */
 test("on page load, i see a login button", async ({ page }) => {
-  // Notice: http, not https! Our front-end is not set up for HTTPs.
   await page.goto("http://localhost:8000/");
   await expect(page.getByLabel("Login")).toBeVisible();
 });
 
 test("on page load, i dont see the input box until login", async ({ page }) => {
-  // Notice: http, not https! Our front-end is not set up for HTTPs.
   await page.goto("http://localhost:8000/");
   await expect(page.getByLabel("Sign Out")).not.toBeVisible();
   await expect(page.getByLabel("Command input")).not.toBeVisible();
@@ -55,26 +37,56 @@ test("after I type into the input box, its text changes", async ({ page }) => {
 });
 
 test("on page load, i see a button", async ({ page }) => {
-  // TODO WITH TA: Fill this in!
   await page.goto("http://localhost:8000/");
   await page.getByLabel("Login").click();
-  await expect(page.getByRole("button", { name: "Count is 0." }).toBeVisible());
+  //await expect(page.getByLabel("Submit button", { name: "Count is 0." })).toBeVisible();
+  await expect(page.getByLabel("Submit button")).toBeVisible();
 });
 
 test("after I click the button, its label increments", async ({ page }) => {
-  // TODO WITH TA: Fill this in to test your button counter functionality!
+  // Tests button counter functionality!
   await page.goto("http://localhost:8000/");
   await page.getByLabel("Login").click();
   await page.getByLabel("Submit button").click();
-  await expect(page.getByLabel("Submit Button")).toBeVisible();
+  await expect(page.getByLabel("Submit button")).toBeVisible();
 });
 
 test("after I click the button, my command gets pushed", async ({ page }) => {
-  // TODO: Fill this in to test your button push functionality!
   await page.goto("http://localhost:8000/");
   await page.getByLabel("Login").click();
 
-  await page.getByLabel("Command input").fill("Awesome command");
+  await page.getByLabel("Command input").fill("Awesome");
   await page.getByLabel("Submit button").click();
-  await expect(page.getByLabel("repl-history")).toHaveValue("Awesome command");
+  const expectedOutput = "Awesome";
+  await expect(page.getByText(expectedOutput)).toBeVisible();
 });
+
+test("mode starts at brief", async ({ page }) => {
+  await page.goto("http://localhost:8000/");
+  await page.getByLabel("Login").click();
+
+  await page.getByLabel("Command input").fill("this is a test");
+  await page.getByLabel("Submit button").click();
+  const expectedOutput = "Command not found: this";
+  await expect(page.getByText(expectedOutput)).toBeVisible();
+
+  const unexpectedOutput = "Command: this is a test";
+  await expect(page.getByText(unexpectedOutput)).not.toBeVisible();
+});
+
+test("specific commands will register as not found", async ({ page }) => {
+  await page.goto("http://localhost:8000/");
+  await page.getByLabel("Login").click();
+
+  await page.getByLabel("Command input").fill("nonsense");
+  await page.getByLabel("Submit button").click();
+  const expectedOutput = "Command not found: nonsense";
+  await expect(page.getByText(expectedOutput)).toBeVisible();
+  
+});
+
+
+
+
+
+
