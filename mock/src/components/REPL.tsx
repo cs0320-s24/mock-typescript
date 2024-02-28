@@ -13,7 +13,9 @@ import { REPLInput } from "./REPLInput";
 */
 
 export default function REPL() {
-  const [history, setHistory] = useState<{ command: string; result: string }[]>([]);
+  const [history, setHistory] = useState<{ command: string; result: string }[]>(
+    []
+  );
 
   return (
     <div className="repl">
