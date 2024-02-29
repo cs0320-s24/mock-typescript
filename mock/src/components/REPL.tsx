@@ -16,8 +16,11 @@ export default function REPL() {
   const [history, setHistory] = useState<{ command: string; result: string }[]>(
     []
   );
+
+  // configs is a map storing important info for all commands to access/update
   const [configs, setConfigs] = useState(new Map<string, any>());
 
+  // function for the commands to update the configs map
   const updateConfigs = (key: string, val: any) => {
     const updated = new Map(configs);
     updated.set(key, val);
