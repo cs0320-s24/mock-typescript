@@ -1,7 +1,8 @@
 export interface REPLFunction {
   (
     args: Array<string>,
-    setCSV: React.Dispatch<React.SetStateAction<string[][]>>
+    configs: Map<string, any>,
+    updateConfigs: (key: string, val: any) => void
   ): String | String[][];
 }
 
