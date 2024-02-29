@@ -2,7 +2,7 @@ import "../styles/main.css";
 import { Dispatch, SetStateAction, useState } from "react";
 import { ControlledInput } from "./ControlledInput";
 import { commandHub, getCommand } from "./CommandHub";
-import { outputMode } from "./commandMode";
+import {} from "./commandMode";
 import {} from "./commandMockLoad";
 
 interface REPLInputProps {
@@ -10,12 +10,13 @@ interface REPLInputProps {
   setHistory: React.Dispatch<
     React.SetStateAction<{ command: string; result: string }[]>
   >;
+  configs: Map<string, any>;
+  updateConfigs: (key: string, val: any) => void;
 }
 
 export function REPLInput(props: REPLInputProps) {
   const [commandString, setCommandString] = useState<string>("");
   const [count, setCount] = useState<number>(0);
-  const [csv, setCSV] = useState<string[][]>([]);
 
   const handleSubmit = () => {
     // Source: https://stackoverflow.com/questions/10346722/how-to-split-a-string-by-white-space-or-comma
@@ -25,7 +26,7 @@ export function REPLInput(props: REPLInputProps) {
 
     let result = "";
     if (commandFunction) {
-      result = commandFunction(args, setCSV);
+      result = commandFunction(args, props.configs, props.updateConfigs);
     } else {
       result = `Command not found: ${coreCommand}`;
     }

@@ -16,12 +16,24 @@ export default function REPL() {
   const [history, setHistory] = useState<{ command: string; result: string }[]>(
     []
   );
+  const [configs, setConfigs] = useState(new Map<string, any>());
+
+  const updateConfigs = (key: string, val: any) => {
+    const updated = new Map(configs);
+    updated.set(key, val);
+    setConfigs(updated);
+  };
 
   return (
     <div className="repl">
-      <REPLHistory history={history} />
+      <REPLHistory history={history} configs={configs} />
       <hr></hr>
-      <REPLInput history={history} setHistory={setHistory} />
+      <REPLInput
+        history={history}
+        setHistory={setHistory}
+        configs={configs}
+        updateConfigs={updateConfigs}
+      />
     </div>
   );
 }
