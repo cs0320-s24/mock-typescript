@@ -36,7 +36,7 @@ const mockedSearchFunction = (columnIdentifier: string, searchTerm: string): any
     };
   }
 
-  if (columnIdentifier === "Data Type" && searchTerm === "American") {
+  if (columnIdentifier === "DataType" && searchTerm === "American") {
     return {
       "response_type": "success",
       "responseMap": {
@@ -54,7 +54,7 @@ const mockedSearchFunction = (columnIdentifier: string, searchTerm: string): any
     };
   }
 
-  if (columnIdentifier === "Employed Percent" && searchTerm === "75") {
+  if (columnIdentifier === "EmployedPercent" && searchTerm === "75") {
     return {
       "response_type": "success",
       "responseMap": {
@@ -82,7 +82,7 @@ const mockedSearchFunction = (columnIdentifier: string, searchTerm: string): any
     };
   }
 
-  if (columnIdentifier === "Number of Workers" && searchTerm === "75") {
+  if (columnIdentifier === "NumberofWorkers" && searchTerm === "75") {
     return {
       "response_type": "success",
       "responseMap": {
