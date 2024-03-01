@@ -4,6 +4,8 @@ import { ControlledInput } from "./ControlledInput";
 import { commandHub, getCommand } from "./CommandHub";
 import {} from "./commandMode";
 import {} from "./commandMockLoad";
+import {} from "./commandMockSearch";
+import {} from "./commandView";
 import { configValue } from "./REPL";
 
 interface REPLInputProps {
