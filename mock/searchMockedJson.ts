@@ -18,6 +18,24 @@ const mockedSearchFunction = (columnIdentifier: string, searchTerm: string): any
     };
   }
 
+  if (columnIdentifier === "1" && searchTerm === "american") {
+    return {
+      "response_type": "success",
+      "responseMap": {
+        "results": [
+          [
+            "RI",
+            "Native American/American Indian",
+            " $471.07 ",
+            "2315.505646",
+            " $0.45 ",
+            "0%"
+          ]
+        ]
+      }
+    };
+  }
+
   if (columnIdentifier === "Data Type" && searchTerm === "American") {
     return {
       "response_type": "success",
