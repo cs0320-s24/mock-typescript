@@ -9,6 +9,12 @@ const mockLoadCommand: REPLFunction = (
   configs: Map<string, configValue>,
   updateConfigs: (key: string, val: configValue) => void
 ): String => {
+  if (args.length < 1) {
+    return "Please input a filepath.";
+  } else if (args.length > 1) {
+    return "Please do not give extra parameters.";
+  }
+
   // gets the 2D mocked data from the dataMap in mockedJson
   const filepath = args[0];
 
