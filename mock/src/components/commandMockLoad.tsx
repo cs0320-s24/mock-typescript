@@ -11,6 +11,11 @@ const mockLoadCommand: REPLFunction = (
 ): String => {
   // gets the 2D mocked data from the dataMap in mockedJson
   const filepath = args[0];
+
+  if (filepath === "malformed.csv") {
+    return "Error loading file.";
+  }
+
   const csv = dataMap[filepath];
 
   // sets the csv variable in shared variable map
@@ -19,4 +24,4 @@ const mockLoadCommand: REPLFunction = (
   return filepath;
 };
 
-registerCommand("load", mockLoadCommand);
+registerCommand("load_file", mockLoadCommand);
