@@ -19,4 +19,4 @@ const mockLoadCommand: REPLFunction = (
   return filepath;
 };
 
-registerCommand("load", mockLoadCommand);
+registerCommand("load_csv", mockLoadCommand);
