@@ -1,4 +1,4 @@
-import { REPLFunction, commandHub, registerCommand } from "./CommandHub"; // Adjust import path as needed
+import { REPLFunction, commandHub, registerCommand } from "./CommandHub";
 import { configValue } from "./REPL";
 
 // Core mode command function!

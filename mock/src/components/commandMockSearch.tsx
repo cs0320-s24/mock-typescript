@@ -14,6 +14,7 @@ const searchCommand: REPLFunction = (
   }
 
   const csvData = configs.get("csv") as string[][];
+
   if (!csvData) {
     return "No CSV file is loaded. Please load a file using the load command to search!";
   }
