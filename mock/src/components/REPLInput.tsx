@@ -24,7 +24,7 @@ export function REPLInput(props: REPLInputProps) {
 
     const commandFunction = getCommand(coreCommand);
 
-    let result = "";
+    let result;
     if (commandFunction) {
       result = commandFunction(args, props.configs, props.updateConfigs);
     } else {
