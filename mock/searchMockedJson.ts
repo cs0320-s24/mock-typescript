@@ -1,5 +1,30 @@
 
 const mockedSearchFunction = (columnIdentifier: string, searchTerm: string): any => {
+
+  // FOR SINGLE COLUMN DATA
+  if (columnIdentifier === "0" && searchTerm === "MA") {
+    return {
+      "response_type": "success",
+      "responseMap": {
+        "results": [
+          ["MA"]
+        ]
+      }
+    };
+  }
+  if (columnIdentifier === "0" && searchTerm === "RI") {
+    return {
+      "response_type": "success",
+      "responseMap": {
+        "results": [
+          ["RI"],
+          ["RI"]
+        ]
+      }
+    };
+  }
+
+  // FOR DOL DATA
   if (columnIdentifier === "1" && searchTerm === "American") {
     return {
       "response_type": "success",
