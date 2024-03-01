@@ -15,9 +15,13 @@ Because we have commandHub, we didn’t feel the need to abstract functions furt
 
 The last design feature of our code that wasn’t specified by the write-up was our use of the configs map – this serves as a place to store any variables that need to be shared between commands, for example csv data loaded by load should be accessible by search and view. We used a map from string to describe the entry (ex: “outputMode” or “csvData”) to a string or string[][]. These two data types fit our needs, but a developer implementing a function that needs to store something in the configs map that isn’t of these types can easily add their necessary type by adjusting our “configValue” variable in REPL. By storing this in a type variable, it allows for easy extensibility across the entire code. All REPLFunctions are passed the configs map and an updateConfigs function, allowing the commands to access and update the map inside their functions if needed. The updateConfigs uses React’s useState setConfigs function to trigger re-renderings of the map whenever updates are made, ensuring the map is synced across all functions.
 
+
 # Errors/Bugs
 
 No known bugs.
+
+Future implementations should think about how to work with headers that have spaces in them.
+
 
 # Tests
 
@@ -44,6 +48,21 @@ View.spec,ts:
 3. tests for viewing a file without headers
 4. tests for switching csvs
 
+Search.spec.ts:
+
+1. Search requires login
+2. Search requires loading the CSV
+3. Several mocked tests get the correct content (pre-defined for now)
+4. Search is invariant to capitalization, assuming the backend does a “fuzzy search” implementation
+5. Search can handle empty responses (no rows found)
+6. Sequential searches, one after the other, can be done.
+7. It’s possible to do view, then search. It’s also possible to do search without view.
+8. Column identifier can be an index or name
+9. Search works in multiple files, including one without a header
+10. After logging in once and loading in a csv, signing out clears the csv from memory, meaning we cannot search it without loading it in again
+11. We can search through data of different forms, such as single-column data
+
+
 # How to
 
 Start the server: run “npm start” in the terminal and command-click the link to get to the website. Click Login to begin!
@@ -55,6 +74,7 @@ Load a file: load_file <filepath>
 For the purposes of this sprint, choose from:
 load_file census/dol_ri_earnings_disparity.csv
 load_file census/dol_ri_earnings_disparity_no_header.csv
+load_file single_column.csv
 load_file empty.csv
 load_file malformed.csv
 
@@ -64,10 +84,13 @@ Search a file: search <column identifier> <value>
 For the purposes of this sprint, choose from:
 search 1 american
 search 1 American
-search Data Type American
-search Employed Percent 75
+search DataType American
+search EmployedPercent 75
 search -1 75
-search Number of Workers 75
+search NumberofWorkers 75
+If you load in the single-column data, try there!
+search 0 RI
+search 0 MA
 
 Please ensure you load a file first. <column identifier> will be the column in which you want to search, given by either a name or an index, and <value> is the value for which you want to search.
 This will display a table of all rows from the loaded csv file that match the value given in the given column. A match is defined as matching any substring of the csv data in the given column and is case-insensitive.
