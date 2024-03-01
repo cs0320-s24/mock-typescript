@@ -12,7 +12,7 @@ const displayResultStringOrTable = (result: string | string[][]) => {
   // B) plain string that was given as input
 
   // check if result is string[][] and is not empty (causes bug with table if so!)
-  if ( (Array.isArray(result) && Array.isArray(result[0])) && result.length > 0) {
+  if (Array.isArray(result) && Array.isArray(result[0]) && result.length > 0) {
     const tableRows = result.map((row, rowIndex) => {
       const cells = row.map((cell, cellIndex) => (
         <td key={`cell-${rowIndex}-${cellIndex}`}>{cell}</td>
