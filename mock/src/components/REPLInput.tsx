@@ -7,9 +7,9 @@ import {} from "./commandMockLoad";
 import { configValue } from "./REPL";
 
 interface REPLInputProps {
-  history: { command: string; result: string }[];
+  history: { command: string; result: String | String[][] }[];
   setHistory: React.Dispatch<
-    React.SetStateAction<{ command: string; result: string }[]>
+    React.SetStateAction<{ command: string; result: String | String[][] }[]>
   >;
   configs: Map<string, configValue>;
   updateConfigs: (key: string, val: configValue) => void;
@@ -17,8 +17,7 @@ interface REPLInputProps {
 
 export function REPLInput(props: REPLInputProps) {
   const [commandString, setCommandString] = useState<string>("");
-  const [count, setCount] = useState<number>(0);
-
+  
   const handleSubmit = () => {
     // Source: https://stackoverflow.com/questions/10346722/how-to-split-a-string-by-white-space-or-comma
     const [coreCommand, ...args] = commandString.split(/\s+/);
@@ -37,7 +36,6 @@ export function REPLInput(props: REPLInputProps) {
       { command: commandString, result: result },
     ]);
 
-    setCount(count + 1);
     setCommandString("");
   };
 
@@ -49,10 +47,15 @@ export function REPLInput(props: REPLInputProps) {
           value={commandString}
           setValue={setCommandString}
           ariaLabel={"Command input"}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              handleSubmit()
+            }
+          }}
         />
       </fieldset>
       <button aria-label={"Submit button"} onClick={handleSubmit}>
-        Count is {count}.
+        Submit Command
       </button>
     </div>
   );
