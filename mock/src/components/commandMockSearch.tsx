@@ -7,7 +7,7 @@ const searchCommand: REPLFunction = (
   configs: Map<string, configValue>,
   updateConfigs: (key: string, val: configValue) => void
 ): String | String[][] => {
-  const csvData = configs.get("csv") as string[][];
+  const csvData = configs.get("csv");
   if (!csvData) {
     return "No CSV file is loaded. Please load a file using the load command to search!";
   }
