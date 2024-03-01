@@ -12,13 +12,16 @@ import { REPLInput } from "./REPLInput";
   You don't need to do that for this gearup.
 */
 
+// value type for the configs map, can be edited to suit a dev's needs
+export type configValue = string | string[][];
+
 export default function REPL() {
   const [history, setHistory] = useState<{ command: string; result: string }[]>(
     []
   );
 
   // configs is a map storing important info for all commands to access/update
-  const [configs, setConfigs] = useState(new Map<string, any>());
+  const [configs, setConfigs] = useState(new Map<string, configValue>());
 
   // function for the commands to update the configs map
   const updateConfigs = (key: string, val: any) => {

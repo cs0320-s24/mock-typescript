@@ -4,14 +4,15 @@ import { ControlledInput } from "./ControlledInput";
 import { commandHub, getCommand } from "./CommandHub";
 import {} from "./commandMode";
 import {} from "./commandMockLoad";
+import { configValue } from "./REPL";
 
 interface REPLInputProps {
   history: { command: string; result: string }[];
   setHistory: React.Dispatch<
     React.SetStateAction<{ command: string; result: string }[]>
   >;
-  configs: Map<string, any>;
-  updateConfigs: (key: string, val: any) => void;
+  configs: Map<string, configValue>;
+  updateConfigs: (key: string, val: configValue) => void;
 }
 
 export function REPLInput(props: REPLInputProps) {

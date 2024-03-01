@@ -1,8 +1,10 @@
+import { configValue } from "./REPL";
+
 export interface REPLFunction {
   (
     args: Array<string>,
-    configs: Map<string, any>,
-    updateConfigs: (key: string, val: any) => void
+    configs: Map<string, configValue>,
+    updateConfigs: (key: string, val: configValue) => void
   ): String | String[][];
 }
 

@@ -1,8 +1,9 @@
 import "../styles/main.css";
+import { configValue } from "./REPL";
 
 interface REPLHistoryProps {
   history: { command: string; result: string }[];
-  configs: Map<string, any>;
+  configs: Map<string, configValue>;
 }
 export function REPLHistory(props: REPLHistoryProps) {
   return (
