@@ -47,6 +47,11 @@ export function REPLInput(props: REPLInputProps) {
           value={commandString}
           setValue={setCommandString}
           ariaLabel={"Command input"}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              handleSubmit()
+            }
+          }}
         />
       </fieldset>
       <button aria-label={"Submit button"} onClick={handleSubmit}>
