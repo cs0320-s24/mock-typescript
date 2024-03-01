@@ -2,11 +2,11 @@ import "../styles/main.css";
 import { configValue } from "./REPL";
 
 interface REPLHistoryProps {
-  history: { command: string; result: string | string[][] }[];
+  history: { command: string; result: String | String[][] }[];
   configs: Map<string, configValue>;
 }
 
-const displayResultStringOrTable = (result: string | string[][]) => {
+const displayResultStringOrTable = (result: String | String[][]) => {
   // Function will either display:
   // A) 2D table (if input was string[][]), or
   // B) plain string that was given as input

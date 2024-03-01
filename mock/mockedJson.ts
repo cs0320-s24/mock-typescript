@@ -1,11 +1,11 @@
 const dolRIHeader: string[][] = [
   [
     "State",
-    "Data Type",
-    "Average Weekly Earnings",
-    "Number of Workers",
-    "Earnings Disparity",
-    "Employed Percent",
+    "DataType",
+    "AverageWeeklyEarnings",
+    "NumberofWorkers",
+    "EarningsDisparity",
+    "EmployedPercent",
   ],
   ["RI", "White", '" $1,058.47 "', "395773.6521", " $1.00 ", "75%"],
   ["RI", "Black", " $770.26 ", "30424.80376", " $0.73 ", "6%"],
