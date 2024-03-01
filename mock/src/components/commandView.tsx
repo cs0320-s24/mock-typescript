@@ -7,7 +7,7 @@ const mockViewCommand: REPLFunction = (
   configs: Map<string, configValue>,
   updateConfigs: (key: string, val: configValue) => void
 ): String | String[][] => {
-  const data = configs.get("csv") as String[][];
+  const data = configs.get("csv");
 
   if (!data) {
     return "No CSV file is loaded. Please load a file using the load command to search!";
