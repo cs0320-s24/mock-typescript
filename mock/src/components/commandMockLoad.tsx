@@ -1,5 +1,5 @@
-import { REPLFunction, commandHub, registerCommand } from "./CommandHub"; // Adjust import path as needed
-import { dataMap } from "../../mockedJson"; // import a filepath-mockeddata map
+import { REPLFunction, commandHub, registerCommand } from "./CommandHub";
+import { dataMap } from "../../mockedJson";
 import { configValue } from "./REPL";
 
 // mock load function that gets static data from a map,
