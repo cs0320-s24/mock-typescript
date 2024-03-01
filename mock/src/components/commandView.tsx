@@ -14,7 +14,7 @@ const mockViewCommand: REPLFunction = (
   const data = configs.get("csv") as String[][];
 
   if (!data) {
-    return "No CSV file is loaded. Please load a file using the load command to search!";
+    return "No CSV file is loaded. Please load a file using the load command to view!";
   } else {
     return data;
   }

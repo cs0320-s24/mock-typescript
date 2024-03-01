@@ -50,3 +50,20 @@ test("calling load on a malformed file will fail", async ({ page }) => {
   const expectedOutput = "Error loading file.";
   await expect(page.getByText(expectedOutput)).toBeVisible();
 });
+
+test("calling load twice will succeed", async ({ page }) => {
+  await page.goto("http://localhost:8000/");
+  await page.getByLabel("Login").click();
+
+  await page.getByLabel("Command input").fill("load_file empty.csv");
+  await page.getByLabel("Submit button").click();
+  const expectedOutput1 = "empty.csv";
+  await expect(page.getByText(expectedOutput1)).toBeVisible();
+
+  await page
+    .getByLabel("Command input")
+    .fill("load_file census/dol_ri_earnings_disparity.csv");
+  await page.getByLabel("Submit button").click();
+  const expectedOutput2 = "census/dol_ri_earnings_disparity.csv";
+  await expect(page.getByText(expectedOutput2)).toBeVisible();
+});

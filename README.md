@@ -29,10 +29,20 @@ Load.spec.ts:
 2. tests for loading a file in brief mode
 3. tests for loading a file in verbose mode
 4. tests for calling a malformed file
-   Mode.spec.ts:
-5. tests for default brief mode
-6. tests switch to verbose mode
-7. tests nonsense input
+5. tests for switching csvs
+
+Mode.spec.ts:
+
+1. tests for default brief mode
+2. tests switch to verbose mode
+3. tests nonsense input
+
+View.spec,ts:
+
+1. tests for viewing without a loaded file
+2. tests for viewing a file with headers
+3. tests for viewing a file without headers
+4. tests for switching csvs
 
 # How to
 
