@@ -7,8 +7,13 @@ const modeCommand: REPLFunction = (
   configs: Map<string, configValue>,
   updateConfigs: (key: string, val: configValue) => void
 ): String => {
+  if (args.length < 1) {
+    return "Please input an output mode.";
+  } else if (args.length > 1) {
+    return "Please do not give extra parameters.";
+  }
+
   // We are ignoring all args after the first
-  // For now, no error if someone enters may args. Just look at first one.
   const newMode = args[0];
   if (newMode === "brief" || newMode === "verbose") {
     // sets mode in configs

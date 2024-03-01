@@ -7,6 +7,12 @@ const searchCommand: REPLFunction = (
   configs: Map<string, configValue>,
   updateConfigs: (key: string, val: configValue) => void
 ): String | String[][] => {
+  if (args.length < 2) {
+    return "Please input a column to search in and a value to search for.";
+  } else if (args.length > 2) {
+    return "Please do not give extra parameters.";
+  }
+
   const csvData = configs.get("csv") as string[][];
   if (!csvData) {
     return "No CSV file is loaded. Please load a file using the load command to search!";
@@ -33,4 +39,3 @@ const searchCommand: REPLFunction = (
 };
 
 registerCommand("search", searchCommand);
-

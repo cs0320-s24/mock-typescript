@@ -7,6 +7,10 @@ const mockViewCommand: REPLFunction = (
   configs: Map<string, configValue>,
   updateConfigs: (key: string, val: configValue) => void
 ): String | String[][] => {
+  if (args.length > 0) {
+    return "Please do not give extra parameters.";
+  }
+
   const data = configs.get("csv") as String[][];
 
   if (!data) {
