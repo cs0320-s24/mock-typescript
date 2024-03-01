@@ -29,6 +29,18 @@ const dolRIHeader: string[][] = [
   ["RI", "Multiracial", " $971.89 ", "8883.049171", " $0.92 ", "2%"],
 ];
 
+const singleColumn: string[][] = [
+  [
+    "State"
+  ],
+  ["RI"],
+  ["RI"],
+  ["FL"],
+  ["FL"],
+  ["AZ"],
+  ["MA"],
+];
+
 const dolRINoHeader: string[][] = [
   [
     "State",
@@ -65,5 +77,6 @@ const empty: string[][] = [[]];
 export const dataMap: { [key: string]: string[][] } = {
   "census/dol_ri_earnings_disparity.csv": dolRIHeader,
   "census/dol_ri_earnings_disparity_no_header.csv": dolRINoHeader,
+  "single_column.csv": singleColumn,
   "empty.csv": empty,
 };
