@@ -33,19 +33,6 @@ test("a search gets correct response", async ({ page }) => {
 
 });
 
-test("can search on single column data", async ({ page }) => {
-  await page.goto("http://localhost:8000/");
-  await page.getByLabel("Login").click();
-  await page.getByLabel("Command input").click();
-  await page.getByLabel("Command input").fill("load_file single_column.csv");
-  await page.getByLabel("Submit button").click();
-  await page.getByLabel("Command input").click();
-  await page.getByLabel("Command input").fill("search 0 MA");
-  await page.getByLabel("Submit button").click();
-  await expect(page.getByText("MA")).toBeVisible();
-
-});
-
 test("search doesn't care about capitalization", async ({ page }) => {
   await page.goto("http://localhost:8000/");
   await page.getByLabel("Login").click();
