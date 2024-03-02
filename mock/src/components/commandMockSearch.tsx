@@ -2,11 +2,13 @@ import { REPLFunction, registerCommand } from "./CommandHub";
 import { configValue } from "./REPL";
 import { mockedSearchFunction } from "../../searchMockedJson";
 
+// mock search command that returns static search responses
 const searchCommand: REPLFunction = (
   args: Array<string>,
   configs: Map<string, configValue>,
   updateConfigs: (key: string, val: configValue) => void
 ): String | String[][] => {
+  // parameter handling for bad user input
   if (args.length < 2) {
     return "Please input a column to search in and a value to search for.";
   } else if (args.length > 2) {
@@ -15,6 +17,7 @@ const searchCommand: REPLFunction = (
 
   const csvData = configs.get("csv") as string[][];
 
+  // if the csv entry doesn't exist in the map, no csv is loaded
   if (!csvData) {
     return "No CSV file is loaded. Please load a file using the load command to search!";
   }

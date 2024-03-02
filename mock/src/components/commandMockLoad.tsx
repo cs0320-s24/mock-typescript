@@ -9,6 +9,7 @@ const mockLoadCommand: REPLFunction = (
   configs: Map<string, configValue>,
   updateConfigs: (key: string, val: configValue) => void
 ): String => {
+  // parameter handling for bad user input
   if (args.length < 1) {
     return "Please input a filepath.";
   } else if (args.length > 1) {
@@ -18,13 +19,13 @@ const mockLoadCommand: REPLFunction = (
   // gets the 2D mocked data from the dataMap in mockedJson
   const filepath = args[0];
 
+  // mock malformed csv response
   if (filepath === "malformed.csv") {
     return "Error loading file.";
   }
 
+  // gets csv data and sets the csv variable in shared variable map
   const csv = dataMap[filepath];
-
-  // sets the csv variable in shared variable map
   updateConfigs("csv", csv);
 
   return filepath;
