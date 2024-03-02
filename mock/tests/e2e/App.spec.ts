@@ -43,14 +43,6 @@ test("on page load, i see a button", async ({ page }) => {
   await expect(page.getByLabel("Submit button")).toBeVisible();
 });
 
-test("after I click the button, its label increments", async ({ page }) => {
-  // Tests button counter functionality!
-  await page.goto("http://localhost:8000/");
-  await page.getByLabel("Login").click();
-  await page.getByLabel("Submit button").click();
-  await expect(page.getByLabel("Submit button")).toBeVisible();
-});
-
 test("after I click the button, my command gets pushed", async ({ page }) => {
   await page.goto("http://localhost:8000/");
   await page.getByLabel("Login").click();
