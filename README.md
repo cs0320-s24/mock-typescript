@@ -158,3 +158,10 @@ Upload your own .tsx file into the src directory. Ensure you utilize the REPLFun
 # Collaboration
 
 None outside of class materials (livecode + gearup).
+
+Splitting a string by commas: https://stackoverflow.com/questions/10346722/how-to-split-a-string-by-white-space-or-comma
+
+Used this to help to make the enter key work: https://stackoverflow.com/questions/73056217/how-to-listen-for-an-enter-keypress-from-typescript
+
+
+
