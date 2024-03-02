@@ -2,6 +2,8 @@
 
 Project Name: Mock Sprint
 
+This is the frontend for a website for a real estate appraiser. It has functionality to work with CSV files, via mocked data.
+
 
 Team Members:
 
