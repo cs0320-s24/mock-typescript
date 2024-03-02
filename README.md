@@ -78,7 +78,7 @@ All tests copied from gear-up. We removed the counter on the submit button since
 8. Column identifier can be an index or name
 9. Search works in multiple files, including one without a header
 10. After logging in once and loading in a csv, signing out clears the csv from memory, meaning we cannot search it without loading it in again
-11. We can search through data of different forms, such as single-column data
+11. We can search through data of different forms
 
 
 # ⭐ How to ⭐
