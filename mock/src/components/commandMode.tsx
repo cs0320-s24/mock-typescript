@@ -1,19 +1,19 @@
 import { REPLFunction, commandHub, registerCommand } from "./CommandHub";
 import { configValue } from "./REPL";
 
-// Core mode command function!
+// mode command that switches output view
 const modeCommand: REPLFunction = (
   args: Array<string>,
   configs: Map<string, configValue>,
   updateConfigs: (key: string, val: configValue) => void
 ): String => {
+  // parameter handling for bad user input
   if (args.length < 1) {
     return "Please input an output mode.";
   } else if (args.length > 1) {
     return "Please do not give extra parameters.";
   }
 
-  // We are ignoring all args after the first
   const newMode = args[0];
   if (newMode === "brief" || newMode === "verbose") {
     // sets mode in configs
