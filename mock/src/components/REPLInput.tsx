@@ -6,6 +6,7 @@ import {} from "./commandMode";
 import {} from "./commandMockLoad";
 import {} from "./commandMockSearch";
 import {} from "./commandView";
+import {} from "./commandViewFirstRow";
 import { configValue } from "./REPL";
 
 interface REPLInputProps {
