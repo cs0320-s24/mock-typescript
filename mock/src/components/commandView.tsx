@@ -12,7 +12,7 @@ const mockViewCommand: REPLFunction = (
     return "Please do not give extra parameters.";
   }
 
-  const data = configs.get("csv") as String[][];
+  const data = configs.get("csv");
 
   // if the csv entry is nonexistent, the csv has not been loaded
   if (!data) {

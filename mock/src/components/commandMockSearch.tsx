@@ -15,7 +15,7 @@ const searchCommand: REPLFunction = (
     return "Please do not give extra parameters.";
   }
 
-  const csvData = configs.get("csv") as string[][];
+  const csvData = configs.get("csv");
 
   // if the csv entry doesn't exist in the map, no csv is loaded
   if (!csvData) {

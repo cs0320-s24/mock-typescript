@@ -12,6 +12,9 @@ Cecily Chung, cchung46, cecily_chung@brown.edu
 Jay Gopal, jgopal, Jay_Gopal@brown.edu
 
 
+GitHub Link: https://github.com/cs0320-s24/mock-typescript/
+
+
 Estimated Time Spent: 15
 
 
