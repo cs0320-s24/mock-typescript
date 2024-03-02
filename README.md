@@ -7,6 +7,8 @@ Jay Gopal, jgopal, Jay_Gopal@brown.edu
 
 est. hours: 15
 
+GitHub Link: https://github.com/cs0320-s24/mock-typescript/
+
 # Design Choices
 
 Our main design choice for this sprint was the design of our commandHub and use of the REPLFunction interface. Our commandHub class stores a commandMap which maps command names (such as “mock”, “load”, etc.) to their functions, allowing them to be called upon accessing from the commandMap. Our handleSubmit() function calls the REPLFunction’s function by searching in the map given the keyword granted by the user and executes that function, storing its output in a results variable which gets sent to REPLHistory to display. This interface allows a developer to implement their own functions easily by importing the file, registering it with our commandHub, and importing into REPLInput. They can easily adjust the return values of the REPLFunction interface if needed as well.
