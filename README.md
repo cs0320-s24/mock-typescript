@@ -33,7 +33,7 @@ Future implementations should think about how to work with headers that have spa
 
 # ✅ Tests ✅ 
 
-END-TO-END (`tests/e2e`):
+These are all end-to-end tests (`tests/e2e`).
 
 ## `App.spec.ts`
 All tests copied from gear-up. We removed the counter on the submit button since it didn't align with the user stories here, and we removed the test for that.
