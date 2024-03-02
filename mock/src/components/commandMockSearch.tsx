@@ -13,7 +13,7 @@ const searchCommand: REPLFunction = (
     return "Please do not give extra parameters.";
   }
 
-  const csvData = configs.get("csv") as string[][];
+  const csvData = configs.get("csv");
 
   if (!csvData) {
     return "No CSV file is loaded. Please load a file using the load command to search!";
