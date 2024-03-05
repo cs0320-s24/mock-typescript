@@ -3,6 +3,7 @@
   "version": "22.2.0",
   "description": "Brown CSCI0320 Sprint 3 Gearup for Fall 2023",
   "license": "UNLICENSED",
+  "homepage": "https://JayRGopal.github.io/cs32-mock",
   "dependencies": {
     "react": "^18.1.0",
     "react-dom": "^18.1.0"
@@ -22,6 +23,8 @@
   },
   "type": "module",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "vite",
     "build": "vite build",
     "serve": "vite preview",
